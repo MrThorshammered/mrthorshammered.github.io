@@ -1,0 +1,36 @@
+body{
+	background-image: url('http://orig07.deviantart.net/5951/f/2011/313/5/f/pixel_cityscape_by_testsubject06-d4fnd3a.png');
+	/*background-color: blue;*/
+}
+
+#goldBox1{
+	display: inline-block;
+	background-color: white;
+	padding: 20px;
+}
+
+
+#goldBox2{
+	display: inline-block;
+	background-color: white;
+	float: right;
+	padding: 20px;
+}
+
+header{
+	border-image: url('http://d35nyfeeu8zws1.cloudfront.net/assets/border-modal-379f146691e718e5de7084a90c85d93e.png') 48 22 46 31 repeat;
+	border-style: solid;
+	border-width: 48px 22px 46px 31px;
+}
+
+#team1{
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+}
+
+#team2{
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+}

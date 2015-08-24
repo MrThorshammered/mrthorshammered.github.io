@@ -5,16 +5,18 @@ body{
 
 #goldBox1{
 	display: inline-block;
-	background-color: white;
-	padding: 20px;
+	
 }
 
 
 #goldBox2{
 	display: inline-block;
-	background-color: white;
 	float: right;
-	padding: 20px;
+	
+}
+
+#l{
+	float:right;
 }
 
 header{
@@ -23,13 +25,24 @@ header{
 	border-width: 48px 22px 46px 31px;
 }
 
-#team1{
+.team1{
+	position: absolute;
+	left: 150px;
+	bottom: 0px;
+}
+
+.team2{
+	position: absolute;
+	right: 150px;
+	bottom: 0px;
+}
+
+#garage1{
 	position: absolute;
 	left: 0px;
 	bottom: 0px;
 }
-
-#team2{
+#garage2{
 	position: absolute;
 	right: 0px;
 	bottom: 0px;

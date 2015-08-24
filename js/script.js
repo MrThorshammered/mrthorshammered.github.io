@@ -3,34 +3,44 @@ $(document).ready(function() {
 var tankChecker;
 var tankHealth1 = [10];//for assigning a health value to 1st tank
 var tankHealth2 = [10];//for assigning a health value to 2nd tank
-var attack = function(){
-	return Math.round(Math.random()*5)
-}
+var attack = function(){//how the attack assigns a value to itself
+	return Math.round(Math.random()*5);
+};
 // what happens when tank 1 is attacked
 var tank1Attacked = function(){
 	var attacked = tankHealth1[0]-attack();
     tankHealth1.unshift(attacked);
-    console.log(tankHealth1[0])
-}
+    console.log(tankHealth1[0]);
+    if (tankHealth1[0] === 0){
+    	$('.team1').remove();
+    }else{
+        tank1Attacked();
+    }
+};
 // what happens when tank 2 is attacked
 var tank2Attacked = function(){
 	var attacked = tankHealth2[0]-attack();
     tankHealth2.unshift(attacked);
-    console.log(tankHealth1[0])
+    console.log(tankHealth1[0]);
+    if (tankHealth2[0] === 0){
+    	$('.team2').remove();
+}else{
+    tank2Attacked();
 }
+};
 
-
-
-console.log("hello");
 // colission detection for the two tanks and get them to stop
+
 var colided = function(){
 	if ($('.team1').position().left >= $('.team2').position().left){
 		console.log('tanks have colided');
 		clearInterval(tankChecker);
 		$('.team1').stop();
 		$('.team2').stop();
+		tank1Attacked();
+		tank2Attacked();
 	}
-}
+};
 
 
 // getting shit to do shit
@@ -53,6 +63,8 @@ $('body').on('keypress', function(e){
     console.log('press the right button');
    }
   });
+
+
 // to make tank left to move right
 function tankTeam1Right() {
     $(".team1").animate({left: "+=1100"}, 5000, "swing");
@@ -62,15 +74,6 @@ function tankTeam1Right() {
 function tankTeam2Right() {
     $(".team2").animate({right: "+=1100"}, 5000, "swing");
 }
-
-
-
-
-
-
-
-
-
 
 
 })

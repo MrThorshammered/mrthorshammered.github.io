@@ -1,4 +1,33 @@
 $(document).ready(function() {
+
+  soundManager.defaultOptions = {
+              
+    multiShot: true,         
+    multiShotEvents: true
+  };
+
+  soundManager.setup({
+  url: '../soundManager/swf/',
+  onready: function() {
+    var mySound = soundManager.createSound({
+      id: 'aSound',
+      url: '../project/sounds/8bitbackground.mp3'
+    })
+    soundManager.setVolume('aSound', 6)
+    mySound.play();
+    }
+});
+
+
+  function startSound(){
+    soundManager.createSound({
+      id: 'start',
+      url: '../project/sounds/humveesound.mp3'
+    }).play()
+  }
+
+// };
+
 var building1Timer;
 var building2Timer;
 var tankOneTimer;
@@ -18,10 +47,10 @@ var attack2 = function(){//how the attack assigns a value to itself
 
 // timer to check who's won the battle
 var didTankOneWin = function(){
-    tankOneTimer = setInterval(tank1Attacked,1000);
+    tankOneTimer = setInterval(tank1Attacked,2000);
 };
 var didTankTwoWin = function(){
-    tankTwoTimer = setInterval(tank2Attacked,1000);
+    tankTwoTimer = setInterval(tank2Attacked,2000);
 };//to check if the tank has hit a building
 var hasABuildingBeenHit = function(team){
     building1Timer = setInterval(function(){
@@ -118,19 +147,6 @@ var buildingAttack1 = function(team){
   }
 };
 
-// var buildingAttack2 = function(team){
-//   if($('team1').position() === undefined){
-//       console.log('tank one destroyed');
-//   }else if(team.position().left <= 200){
-//   var attacked2 = buildingHealth1[0]-attack2;
-//     buildingHealth1.unshift(attacked2);
-//     console.log(buildingHealth1);
-//   }
-// };
-
-
-
-
 // getting shit to do shit
 $('body').on('keypress', function(e){
 	console.log(e.keyCode);
@@ -140,12 +156,14 @@ $('body').on('keypress', function(e){
 	$('body').append('<img class="team1" src="images/king_tiger.gif">');
     tankTeam1Right();
     tankChecker1 = setInterval(colided, 50);
+    startSound();
     break;
     case 108:
     console.log('L has been clicked');
     $('body').append('<img class="team2" src="images/tank_2.gif">');
     tankTeam2Right();
    tankChecker2 = setInterval(colided, 50);
+   startSound();
     break;
     default:
     console.log('press the right button');

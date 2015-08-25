@@ -12,11 +12,16 @@ body{
 #goldBox2{
 	display: inline-block;
 	float: right;
+	margin-bottom: 50px;
 	
 }
-
-#l{
-	float:right;
+.whoSurvived{
+	display: inline-block;
+	position: absolute;
+	left: 50%;
+	color: white;
+	font-size: 18px;
+	border-color: 4px, solid, white;
 }
 
 header{
@@ -47,3 +52,21 @@ header{
 	right: 0px;
 	bottom: 0px;
 }
+#tankOneComentary{
+	display: inline-block;
+	position: absolute;
+	left:300px;
+	color: white;
+}
+#tankTwoComentary{
+	display: inline-block;
+	position: absolute;
+	right: 300px;
+	color: white;
+}
+
+
+
+
+
+
